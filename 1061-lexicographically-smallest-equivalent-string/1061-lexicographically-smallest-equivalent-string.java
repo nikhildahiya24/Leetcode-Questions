@@ -1,4 +1,5 @@
 class Solution {
+
     public String smallestEquivalentString(String A, String B, String S) {
         Map<Character, Character> letterGroupMap = new HashMap<Character, Character>();
         Map<Character, Set<Character>> groupLettersMap = new HashMap<Character, Set<Character>>();
@@ -16,14 +17,12 @@ class Solution {
                 Set<Character> set1 = groupLettersMap.get(group1);
                 Set<Character> set2 = groupLettersMap.get(group2);
                 if (group1 < group2) {
-                    for (char c : set2)
-                        letterGroupMap.put(c, group1);
+                    for (char c : set2) letterGroupMap.put(c, group1);
                     set1.addAll(set2);
                     groupLettersMap.put(group1, set1);
                     groupLettersMap.remove(group2);
                 } else {
-                    for (char c : set1)
-                        letterGroupMap.put(c, group2);
+                    for (char c : set1) letterGroupMap.put(c, group2);
                     set2.addAll(set1);
                     groupLettersMap.put(group2, set2);
                     groupLettersMap.remove(group1);
